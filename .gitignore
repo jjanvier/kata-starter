@@ -1,0 +1,8 @@
+php/vendor/
+.phpunit.result.cache
+
+!.idea
+.idea/*.xml
+.idea/.gitignore
+.idea/kata-starter.iml
+!.idea/runConfigurations/All_tests.xml
