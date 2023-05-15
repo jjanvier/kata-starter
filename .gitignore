@@ -1,5 +1,7 @@
 php/vendor/
 .phpunit.result.cache
+php/.phpunit.cache
+php/build
 
 !.idea
 .idea/*.xml
