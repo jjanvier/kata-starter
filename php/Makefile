@@ -1,8 +1,8 @@
-EXEC_PHP=docker-compose run --rm php
+EXEC_PHP?=docker run --rm -it -v $(PWD):/usr/src/app/ thecodingmachine/php:8.2-v4-cli
 
 .PHONY: php
 php:
-	${EXEC_PHP}
+	${EXEC_PHP} php
 
 .PHONY: test
 test:
