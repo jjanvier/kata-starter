@@ -5,6 +5,9 @@ namespace KataStarter\Test;
 use KataStarter\Example;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @covers KataStarter\Example
+ */
 class ExampleTest extends TestCase
 {
     /**
