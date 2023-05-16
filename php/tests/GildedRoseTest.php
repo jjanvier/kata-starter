@@ -8,6 +8,10 @@ use KataStarter\GildedRose;
 use KataStarter\Item;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @covers KataStarter\GildedRose
+ * @covers KataStarter\Item
+ */
 class GildedRoseTest extends TestCase
 {
     public function testFoo(): void
