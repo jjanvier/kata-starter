@@ -17,7 +17,7 @@ test-coverage:
 .PHONY: test-golden-master
 test-golden-master:
 	@${EXEC_PHP} php fixtures/texttest_fixture.php 31 > /tmp/tests.txt
-	git diff /tmp/tests.txt tests/approvals/ApprovalTest.testTestFixture.approved.txt
+	git diff --ignore-cr-at-eol --ignore-space-at-eol /tmp/tests.txt tests/approvals/ApprovalTest.testTestFixture.approved.txt
 
 .PHONY: install
 install:
