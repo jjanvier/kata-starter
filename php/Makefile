@@ -1,4 +1,4 @@
-EXEC_PHP?=docker run --rm -it -v $(PWD):/usr/src/app/ thecodingmachine/php:8.2-v4-cli
+EXEC_PHP?=docker run --rm -it -v $(PWD):/usr/src/app/ thecodingmachine/php:8.3-v4-cli
 
 .PHONY: php
 php:
