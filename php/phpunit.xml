@@ -9,6 +9,13 @@
          beStrictAboutOutputDuringTests="true"
          failOnRisky="true"
          failOnWarning="true">
+
+    <source>
+        <include>
+            <directory suffix=".php">src</directory>
+        </include>
+    </source>
+
     <testsuites>
         <testsuite name="default">
             <directory>tests</directory>
@@ -16,8 +23,8 @@
     </testsuites>
 
     <coverage>
-        <include>
-            <directory suffix=".php">src</directory>
-        </include>
+        <report>
+            <html outputDirectory="build/coverage" lowUpperBound="50" highLowerBound="90"/>
+        </report>
     </coverage>
 </phpunit>

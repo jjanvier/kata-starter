@@ -1,5 +1,5 @@
 EXEC_PHP?=docker run --rm -it -v $(PWD):/usr/src/app/ thecodingmachine/php:8.3-v4-cli
-EXEC_PHP_XDEBUG?=docker run --rm -it --env PHP_EXTENSION_XDEBUG=1 --env=XDEBUG_MODE=coverage -v $(PWD):/usr/src/app/ thecodingmachine/php:8.2-v4-cli
+EXEC_PHP_XDEBUG?=docker run --rm -it --env PHP_EXTENSION_XDEBUG=1 --env=XDEBUG_MODE=coverage -v $(PWD):/usr/src/app/ thecodingmachine/php:8.3-v4-cli
 FIXTURES_LENGTH?=10
 
 .PHONY: php
@@ -12,7 +12,7 @@ test:
 
 .PHONY: test-coverage
 test-coverage:
-	${EXEC_PHP_XDEBUG} php vendor/bin/phpunit tests --coverage-html build/coverage
+	${EXEC_PHP_XDEBUG} php vendor/bin/phpunit tests
 
 .PHONY: test-golden-master
 test-golden-master:
