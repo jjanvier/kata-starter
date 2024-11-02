@@ -14,8 +14,8 @@ You're ready to learn!
 
 ### PHP
 
-- PHP version 8.2 (using the [thecodingmachine](https://github.com/thecodingmachine/docker-images-php) Docker images)
-- Phpunit version 10.0
+- PHP version 8.3 (using the [thecodingmachine](https://github.com/thecodingmachine/docker-images-php) Docker images)
+- Phpunit version 11+
 - Your tests should have the namespace `KataStarter\Test` and be in the `tests/` folder.
 - Your production code should have the namespace `KataStarter` and be in the `src/` folder.
 
