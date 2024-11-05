@@ -21,4 +21,5 @@ You're ready to learn!
 
 ### Typescript
 
-TODO
+- Node version 23+
+- Jest version 29+ with TS enabled
