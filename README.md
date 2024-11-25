@@ -24,7 +24,7 @@ You're ready to learn!
 - Node version 23+
 - Jest version 29+ with TS enabled
 
-# GildedRose Kata
+# GildedRose Kata PHP
 
 This is a copy version of [emilybache/GildedRose-Refactoring-Kata](https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/main/php).
 
