@@ -4,11 +4,16 @@
     "main": "index.js",
     "license": "MIT",
     "scripts": {
-        "test": "jest"
+        "test": "jest",
+        "coverage": "jest --coverage --coverageDirectory=./build/",
+        "tsx": "tsx"
     },
     "devDependencies": {
         "@types/jest": "^29.5.14",
         "jest": "^29.7.0",
         "ts-jest": "^29.2.5"
+    },
+    "dependencies": {
+        "tsx": "^4.19.2"
     }
 }

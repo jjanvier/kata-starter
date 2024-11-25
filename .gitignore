@@ -6,6 +6,7 @@ php/.phpunit.cache
 php/build
 
 ts/node_modules
+ts/build
 
 !.idea
 .idea/*.xml

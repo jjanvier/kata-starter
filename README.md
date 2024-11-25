@@ -24,7 +24,7 @@ You're ready to learn!
 - Node version 23+
 - Jest version 29+ with TS enabled
 
-# GildedRose Kata PHP
+# GildedRose Kata
 
 This is a copy version of [emilybache/GildedRose-Refactoring-Kata](https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/main/php).
 
@@ -33,21 +33,18 @@ See the [specification](https://github.com/emilybache/GildedRose-Refactoring-Kat
 ## Folders
 
 - `src` - contains the two classes:
-    - `Item.php` - this class should not be changed
-    - `GildedRose.php` - this class needs to be refactored, and the new feature added
+    - `Item` - this class should not be changed
+    - `GildedRose` - this class needs to be refactored, and the new feature added
 - `tests` - contains the tests
-    - `GildedRoseTest.php` - starter test.
-        - Tip: ApprovalTests has been included as a dev dependency, see the PHP version of
-          the [Theatrical Players Refactoring Kata](https://github.com/emilybache/Theatrical-Players-Refactoring-Kata/)
-          for an example
+    - `GildedRoseTest` - starter test
 - `fixtures`
-    - `texttest_fixture.php` this could be used for approval tests (or golden master)
+    - `texttest_fixture` this could be used for approval tests (or golden master)
 
-## Golden master
+## Golden Master | Approval Tests
 
-The file `php/tests/approvals/ApprovalTest.testTestFixture.approved.txt` represents an output of the program. It can be used as source of truth for the golden master technique. 
+The file `tests/approvals/ApprovalTest.testTestFixture.approved.txt` represents an output of the program. It can be used as source of truth for the golden master technique. 
 
-Use the following command to compare your current output to this golden master file:
+Use the following commands to compare your current output to this golden master file:
 
 ```shell
 make test-golden-master
@@ -65,10 +62,12 @@ You can change the number of fixtures:
 make fixtures FIXTURES_LENGTH=15
 ```
 
+To ease approval testing (which can be cumbersome), some libraries can be used. For instance
+- [approvals/approval-tests](https://github.com/approvals/ApprovalTests.php) in PHP
+
 ## Testing
 
-PHPUnit is configured for testing, a composer script has been provided. To run the unit tests, from the root of the PHP
-project run:
+To run the unit tests, run:
 
 ```shell script
 make test
@@ -76,12 +75,12 @@ make test
 
 ### Tests with Coverage Report
 
-To run all test and generate a html coverage report run:
+To run all test and generate an HTML coverage report run:
 
 ```shell script
 make test-coverage
 ```
 
-The test-coverage report will be created in /builds, it is best viewed by opening /builds/**index.html** in your
+The test coverage report will be created in the `./build` directory. It is best viewed by opening `./build/**/index.html` in your
 browser.
 
