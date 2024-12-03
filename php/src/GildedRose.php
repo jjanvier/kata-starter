@@ -6,6 +6,10 @@ namespace KataStarter;
 
 final class GildedRose
 {
+    const ITEM_SULFURAS = 'Sulfuras, Hand of Ragnaros';
+    const ITEM_BRIE = 'Aged Brie';
+    const ITEM_PASSES = 'Backstage passes to a TAFKAL80ETC concert';
+
     /**
      * @param Item[] $items
      */
@@ -17,51 +21,73 @@ final class GildedRose
     public function updateQuality(): void
     {
         foreach ($this->items as $item) {
-            if ($item->name != 'Aged Brie' and $item->name != 'Backstage passes to a TAFKAL80ETC concert') {
-                if ($item->quality > 0) {
-                    if ($item->name != 'Sulfuras, Hand of Ragnaros') {
-                        $item->quality = $item->quality - 1;
-                    }
-                }
+
+            // TODO: we are at a point where we could easily introduce the strategy
+            // TODO: pattern with one class per Item type
+
+            if ($item->name == self::ITEM_SULFURAS) {
+                continue;
+            }
+
+            if ($item->name == self::ITEM_BRIE) {
+                $this->increaseQuality($item);
+            } elseif ($item->name == self::ITEM_PASSES) {
+                $this->increaseBackstagePassesQuality($item);
             } else {
-                if ($item->quality < 50) {
-                    $item->quality = $item->quality + 1;
-                    if ($item->name == 'Backstage passes to a TAFKAL80ETC concert') {
-                        if ($item->sellIn < 11) {
-                            if ($item->quality < 50) {
-                                $item->quality = $item->quality + 1;
-                            }
-                        }
-                        if ($item->sellIn < 6) {
-                            if ($item->quality < 50) {
-                                $item->quality = $item->quality + 1;
-                            }
-                        }
-                    }
-                }
+                $this->decreaseQuality($item);
             }
 
-            if ($item->name != 'Sulfuras, Hand of Ragnaros') {
-                $item->sellIn = $item->sellIn - 1;
-            }
+            $this->decreaseSellIn($item);
 
-            if ($item->sellIn < 0) {
-                if ($item->name != 'Aged Brie') {
-                    if ($item->name != 'Backstage passes to a TAFKAL80ETC concert') {
-                        if ($item->quality > 0) {
-                            if ($item->name != 'Sulfuras, Hand of Ragnaros') {
-                                $item->quality = $item->quality - 1;
-                            }
-                        }
-                    } else {
-                        $item->quality = $item->quality - $item->quality;
-                    }
+            if ($this->shouldHaveBeenAlreadySold($item)) {
+                if ($item->name == self::ITEM_BRIE) {
+                    $this->increaseQuality($item);
+                } elseif ($item->name == self::ITEM_PASSES) {
+                    $this->resetQuality($item);
                 } else {
-                    if ($item->quality < 50) {
-                        $item->quality = $item->quality + 1;
-                    }
+                    $this->decreaseQuality($item);
                 }
             }
+        }
+    }
+
+    private function decreaseQuality(Item $item): void
+    {
+        if ($item->quality > 0) {
+            --$item->quality;
+        }
+    }
+
+    private function increaseQuality(Item $item): void
+    {
+        if ($item->quality < 50) {
+            ++$item->quality;
+        }
+    }
+
+    private function resetQuality(Item $item): void
+    {
+        $item->quality = 0;
+    }
+
+    private function decreaseSellIn(Item $item): void
+    {
+        --$item->sellIn;
+    }
+
+    private function shouldHaveBeenAlreadySold(Item $item): bool
+    {
+        return $item->sellIn < 0;
+    }
+
+    private function increaseBackstagePassesQuality(Item $item): void
+    {
+        $this->increaseQuality($item);
+        if ($item->sellIn < 11) {
+            $this->increaseQuality($item);
+        }
+        if ($item->sellIn < 6) {
+            $this->increaseQuality($item);
         }
     }
 }
