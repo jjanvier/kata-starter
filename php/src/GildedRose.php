@@ -31,10 +31,8 @@ final class GildedRose
                 if ($item->sellIn < 6) {
                     $this->increaseQuality($item);
                 }
-            } else {
-                if ($item->name != self::ITEM_SULFURAS) {
-                    $this->decreaseQuality($item);
-                }
+            } elseif ($item->name != self::ITEM_SULFURAS) {
+                $this->decreaseQuality($item);
             }
 
             if ($item->name != self::ITEM_SULFURAS) {
