@@ -28,20 +28,14 @@ final class GildedRose
             if ($item->name == self::ITEM_BRIE) {
                 $this->increaseQuality($item);
             } elseif ($item->name == self::ITEM_PASSES) {
-                $this->increaseQuality($item);
-                if ($item->sellIn < 11) {
-                    $this->increaseQuality($item);
-                }
-                if ($item->sellIn < 6) {
-                    $this->increaseQuality($item);
-                }
+                $this->increaseBackstagePassesQuality($item);
             } else {
                 $this->decreaseQuality($item);
             }
 
             $this->decreaseSellIn($item);
 
-            if ($item->sellIn < 0) {
+            if ($this->shouldHaveBeenAlreadySold($item)) {
                 if ($item->name == self::ITEM_BRIE) {
                     $this->increaseQuality($item);
                 } elseif ($item->name == self::ITEM_PASSES) {
@@ -75,5 +69,21 @@ final class GildedRose
     private function decreaseSellIn(Item $item): void
     {
         --$item->sellIn;
+    }
+
+    private function shouldHaveBeenAlreadySold(Item $item): bool
+    {
+        return $item->sellIn < 0;
+    }
+
+    private function increaseBackstagePassesQuality(Item $item): void
+    {
+        $this->increaseQuality($item);
+        if ($item->sellIn < 11) {
+            $this->increaseQuality($item);
+        }
+        if ($item->sellIn < 6) {
+            $this->increaseQuality($item);
+        }
     }
 }
