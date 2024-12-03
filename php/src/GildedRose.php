@@ -21,7 +21,23 @@ final class GildedRose
     public function updateQuality(): void
     {
         foreach ($this->items as $item) {
-            if ($item->name == self::ITEM_BRIE or $item->name == self::ITEM_PASSES) {
+            if ($item->name == self::ITEM_BRIE) {
+                if ($item->quality < 50) {
+                    $this->increaseQuality($item);
+                    if ($item->name == self::ITEM_PASSES) {
+                        if ($item->sellIn < 11) {
+                            if ($item->quality < 50) {
+                                $this->increaseQuality($item);
+                            }
+                        }
+                        if ($item->sellIn < 6) {
+                            if ($item->quality < 50) {
+                                $this->increaseQuality($item);
+                            }
+                        }
+                    }
+                }
+            } elseif ($item->name == self::ITEM_PASSES) {
                 if ($item->quality < 50) {
                     $this->increaseQuality($item);
                     if ($item->name == self::ITEM_PASSES) {
