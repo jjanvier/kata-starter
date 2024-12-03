@@ -21,6 +21,10 @@ final class GildedRose
     public function updateQuality(): void
     {
         foreach ($this->items as $item) {
+
+            // TODO: we are at a point where we could easily introduce the strategy
+            // TODO: pattern with one class per Item type
+
             if ($item->name == self::ITEM_SULFURAS) {
                 continue;
             }
