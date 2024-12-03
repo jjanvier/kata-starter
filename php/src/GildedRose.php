@@ -32,8 +32,8 @@ final class GildedRose
                     $this->increaseQuality($item);
                 }
             } else {
-                if ($item->quality > 0) {
-                    if ($item->name != self::ITEM_SULFURAS) {
+                if ($item->name != self::ITEM_SULFURAS) {
+                    if ($item->quality > 0) {
                         $this->decreaseQuality($item);
                     }
                 }
@@ -46,14 +46,10 @@ final class GildedRose
             if ($item->sellIn < 0) {
                 if ($item->name == self::ITEM_BRIE) {
                     $this->increaseQuality($item);
-                } else {
-                    if ($item->name == self::ITEM_PASSES) {
-                        $this->resetQuality($item);
-                    } else {
-                        if ($item->quality > 0 && $item->name != self::ITEM_SULFURAS) {
-                            $this->decreaseQuality($item);
-                        }
-                    }
+                } elseif ($item->name == self::ITEM_PASSES) {
+                    $this->resetQuality($item);
+                } elseif ($item->quality > 0 && $item->name != self::ITEM_SULFURAS) {
+                    $this->decreaseQuality($item);
                 }
             }
         }
