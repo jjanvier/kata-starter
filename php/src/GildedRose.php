@@ -6,6 +6,10 @@ namespace KataStarter;
 
 final class GildedRose
 {
+    const ITEM_SULFURAS = 'Sulfuras, Hand of Ragnaros';
+    const ITEM_BRIE = 'Aged Brie';
+    const ITEM_PASSES = 'Backstage passes to a TAFKAL80ETC concert';
+
     /**
      * @param Item[] $items
      */
@@ -17,16 +21,16 @@ final class GildedRose
     public function updateQuality(): void
     {
         foreach ($this->items as $item) {
-            if ($item->name != 'Aged Brie' and $item->name != 'Backstage passes to a TAFKAL80ETC concert') {
+            if ($item->name != self::ITEM_BRIE and $item->name != self::ITEM_PASSES) {
                 if ($item->quality > 0) {
-                    if ($item->name != 'Sulfuras, Hand of Ragnaros') {
+                    if ($item->name != self::ITEM_SULFURAS) {
                         $this->decreaseQuality($item);
                     }
                 }
             } else {
                 if ($item->quality < 50) {
                     $this->increaseQuality($item);
-                    if ($item->name == 'Backstage passes to a TAFKAL80ETC concert') {
+                    if ($item->name == self::ITEM_PASSES) {
                         if ($item->sellIn < 11) {
                             if ($item->quality < 50) {
                                 $this->increaseQuality($item);
@@ -41,15 +45,15 @@ final class GildedRose
                 }
             }
 
-            if ($item->name != 'Sulfuras, Hand of Ragnaros') {
+            if ($item->name != self::ITEM_SULFURAS) {
                 $item->sellIn = $item->sellIn - 1;
             }
 
             if ($item->sellIn < 0) {
-                if ($item->name != 'Aged Brie') {
-                    if ($item->name != 'Backstage passes to a TAFKAL80ETC concert') {
+                if ($item->name != self::ITEM_BRIE) {
+                    if ($item->name != self::ITEM_PASSES) {
                         if ($item->quality > 0) {
-                            if ($item->name != 'Sulfuras, Hand of Ragnaros') {
+                            if ($item->name != self::ITEM_SULFURAS) {
                                 $this->decreaseQuality($item);
                             }
                         }
