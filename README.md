@@ -28,7 +28,7 @@ You're ready to learn!
 
 This is a copy version of [emilybache/GildedRose-Refactoring-Kata](https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/main/php).
 
-See the [specification](https://github.com/emilybache/GildedRose-Refactoring-Kata/blob/main/GildedRoseRequirements.txt) to understand what Gilded Rose is about.
+See the [specification](https://github.com/emilybache/GildedRose-Refactoring-Kata/blob/main/GildedRoseRequirements.md) to understand what Gilded Rose is about.
 
 ## Folders
 
