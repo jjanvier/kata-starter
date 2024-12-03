@@ -21,13 +21,7 @@ final class GildedRose
     public function updateQuality(): void
     {
         foreach ($this->items as $item) {
-            if ($item->name != self::ITEM_BRIE and $item->name != self::ITEM_PASSES) {
-                if ($item->quality > 0) {
-                    if ($item->name != self::ITEM_SULFURAS) {
-                        $this->decreaseQuality($item);
-                    }
-                }
-            } else {
+            if ($item->name == self::ITEM_BRIE or $item->name == self::ITEM_PASSES) {
                 if ($item->quality < 50) {
                     $this->increaseQuality($item);
                     if ($item->name == self::ITEM_PASSES) {
@@ -43,6 +37,12 @@ final class GildedRose
                         }
                     }
                 }
+            } else {
+                if ($item->quality > 0) {
+                    if ($item->name != self::ITEM_SULFURAS) {
+                        $this->decreaseQuality($item);
+                    }
+                }
             }
 
             if ($item->name != self::ITEM_SULFURAS) {
@@ -50,19 +50,17 @@ final class GildedRose
             }
 
             if ($item->sellIn < 0) {
-                if ($item->name != self::ITEM_BRIE) {
-                    if ($item->name != self::ITEM_PASSES) {
-                        if ($item->quality > 0) {
-                            if ($item->name != self::ITEM_SULFURAS) {
-                                $this->decreaseQuality($item);
-                            }
-                        }
-                    } else {
-                        $this->resetQuality($item);
-                    }
-                } else {
+                if ($item->name == self::ITEM_BRIE) {
                     if ($item->quality < 50) {
                         $this->increaseQuality($item);
+                    }
+                } else {
+                    if ($item->name == self::ITEM_PASSES) {
+                        $this->resetQuality($item);
+                    } else {
+                        if ($item->quality > 0 && $item->name != self::ITEM_SULFURAS) {
+                            $this->decreaseQuality($item);
+                        }
                     }
                 }
             }
