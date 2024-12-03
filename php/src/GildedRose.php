@@ -39,7 +39,7 @@ final class GildedRose
                 $this->decreaseQuality($item);
             }
 
-                $item->sellIn = $item->sellIn - 1;
+            $this->decreaseSellIn($item);
 
             if ($item->sellIn < 0) {
                 if ($item->name == self::ITEM_BRIE) {
@@ -70,5 +70,10 @@ final class GildedRose
     private function resetQuality(Item $item): void
     {
         $item->quality = 0;
+    }
+
+    private function decreaseSellIn(Item $item): void
+    {
+        --$item->sellIn;
     }
 }
