@@ -28,15 +28,11 @@ final class GildedRose
             } elseif ($item->name == self::ITEM_PASSES) {
                 if ($item->quality < 50) {
                     $this->increaseQuality($item);
-                    if ($item->sellIn < 11) {
-                        if ($item->quality < 50) {
-                            $this->increaseQuality($item);
-                        }
+                    if ($item->sellIn < 11 && $item->quality < 50) {
+                        $this->increaseQuality($item);
                     }
-                    if ($item->sellIn < 6) {
-                        if ($item->quality < 50) {
-                            $this->increaseQuality($item);
-                        }
+                    if ($item->sellIn < 6 && $item->quality < 50) {
+                        $this->increaseQuality($item);
                     }
                 }
             } else {
