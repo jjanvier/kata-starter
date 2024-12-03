@@ -22,18 +22,14 @@ final class GildedRose
     {
         foreach ($this->items as $item) {
             if ($item->name == self::ITEM_BRIE) {
-                if ($item->quality < 50) {
+                $this->increaseQuality($item);
+            } elseif ($item->name == self::ITEM_PASSES<s) {
+                $this->increaseQuality($item);
+                if ($item->sellIn < 11) {
                     $this->increaseQuality($item);
                 }
-            } elseif ($item->name == self::ITEM_PASSES) {
-                if ($item->quality < 50) {
+                if ($item->sellIn < 6) {
                     $this->increaseQuality($item);
-                    if ($item->sellIn < 11 && $item->quality < 50) {
-                        $this->increaseQuality($item);
-                    }
-                    if ($item->sellIn < 6 && $item->quality < 50) {
-                        $this->increaseQuality($item);
-                    }
                 }
             } else {
                 if ($item->quality > 0) {
@@ -49,9 +45,7 @@ final class GildedRose
 
             if ($item->sellIn < 0) {
                 if ($item->name == self::ITEM_BRIE) {
-                    if ($item->quality < 50) {
-                        $this->increaseQuality($item);
-                    }
+                    $this->increaseQuality($item);
                 } else {
                     if ($item->name == self::ITEM_PASSES) {
                         $this->resetQuality($item);
@@ -72,7 +66,9 @@ final class GildedRose
 
     private function increaseQuality(Item $item): void
     {
-        $item->quality = $item->quality + 1;
+        if ($item->quality < 50) {
+            $item->quality = $item->quality + 1;
+        }
     }
 
     private function resetQuality(Item $item): void
