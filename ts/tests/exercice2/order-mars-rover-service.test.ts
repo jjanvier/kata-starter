@@ -1,8 +1,8 @@
 // OrderMarsRoverService.test.ts
-import { Cardinal } from '../src/cardinal'
-import { Instruction, Order } from '../src/order';
-import { OrderMarsRoverService } from '../src/order-mars-rover-service';
-import { Position } from '../src/position';
+import { Cardinal } from '../../src/cardinal'
+import { Instruction, Order } from '../../src/order';
+import { OrderMarsRoverService } from '../../src/order-mars-rover-service';
+import { Position } from '../../src/position';
 
 describe('OrderMarsRoverService', () => {
     let sut: OrderMarsRoverService;

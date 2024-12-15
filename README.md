@@ -1,10 +1,12 @@
 # Mars Rover: tests and architecture kata
 
-⚠️⚠️ Please, do not open the folder `tests/AlmostHidden` until asked to do so.
+⚠️⚠️ Please, do not open the folder `tests/Exercice2` until asked to do so.
+
+Checkout the branch `mars-rover-architecture`.
 
 This kata is based on the traditional [Mars Rover kata](https://code.google.com/archive/p/marsrovertechchallenge/), but with a twist.
 
-The implementation has already been coded. The CLI `KataStarter\OrderMarsRoverCli` allows to order several Mars rovers to make them move and turn.
+The implementation has already been coded. The CLI `OrderMarsRoverCli` allows to order several Mars rovers to make them move and turn.
 
 ## How to use?
 
@@ -61,7 +63,7 @@ You can write pseudo-code or take shortcuts if you want. The code doesn't have t
 
 ⏲ 15 minutes + 35 minutes debrief
 
-Now, let's have a look at the `tests/AlmostHidden` folder. It contains test classes that tests code. 
+Now, let's have a look at the `tests/Exercice2` folder in the branch `with-tests-mars-rover-architecture`. 
 
 - How does it compare with your solution?
 - What are the pros and cons of each approach?

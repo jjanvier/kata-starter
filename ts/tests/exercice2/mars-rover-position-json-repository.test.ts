@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs';
-import { MarsRoverPositionJsonRepository } from '../src/mars-rover-position-json-repository';
-import { Position } from '../src/position';
-import { Cardinal } from '../src/cardinal';
+import { MarsRoverPositionJsonRepository } from '../../src/mars-rover-position-json-repository';
+import { Position } from '../../src/position';
+import { Cardinal } from '../../src/cardinal';
 
 describe('MarsRoverPositionJsonRepository', () => {
     let filename: string;

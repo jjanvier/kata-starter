@@ -1,5 +1,5 @@
-import {OrderMarsRoverCli} from '../src/order-mars-rover-cli';
-import {OrderMarsRoverService} from '../src/order-mars-rover-service';
+import {OrderMarsRoverCli} from '../../src/order-mars-rover-cli';
+import {OrderMarsRoverService} from '../../src/order-mars-rover-service';
 
 describe('OrderMarsRoverCli', () => {
     let command: OrderMarsRoverCli;

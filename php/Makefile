@@ -6,7 +6,7 @@ php:
 
 .PHONY: test
 test:
-	${EXEC_PHP} php vendor/bin/phpunit tests
+	${EXEC_PHP} php vendor/bin/phpunit tests --testdox
 
 .PHONY: install
 install:

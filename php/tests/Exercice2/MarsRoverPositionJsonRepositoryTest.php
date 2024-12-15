@@ -1,6 +1,6 @@
 <?php
 
-namespace KataStarter\Test\AlmostHidden;
+namespace KataStarter\Test\Exercice2;
 
 use KataStarter\Cardinal;
 use KataStarter\MarsRoverPositionJsonRepository;
