@@ -13,9 +13,9 @@ const HELP = `
 
 For instance, to order 2 rovers, you would write:
     node dist/bin/console "1 2 N
-        LMLMLMLMM
-        3 3 E
-        MMRMMR"
+LMLMLMLMM
+3 3 E
+MMRMMR"
 `;
 
 program
